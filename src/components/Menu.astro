@@ -50,6 +50,26 @@
     width: calc(5 * var(--unit));
     height: 100%;
     background-color: hsla(0, 0%, 0%, 0.5);
+
+    view-timeline: --menu block;
+    animation-timeline: --menu;
+
+    animation-name: fade-in;
+    animation-range: entry 50% contain 60%;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
   .icon {
     width: calc(1.3 * var(--unit));
