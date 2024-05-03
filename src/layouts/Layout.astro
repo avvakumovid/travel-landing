@@ -27,6 +27,7 @@ let backgroundStyle = `url(${backgroundUrl})`;
   </body>
 </html>
 <style is:global define:vars={{ backgroundStyle }}>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
   :root {
     --accent: 136, 58, 234;
     --accent-light: 224, 204, 250;
@@ -50,12 +51,16 @@ let backgroundStyle = `url(${backgroundUrl})`;
     padding: 0;
     margin: 0;
   }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
   .layout {
     height: 100vh;
     width: 100vw;
     background: var(--backgroundStyle) no-repeat center;
     background-size: cover;
     display: flex;
-    column-gap:  calc(4 * var(--unit));
+    column-gap: calc(4 * var(--unit));
   }
 </style>

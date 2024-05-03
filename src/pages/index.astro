@@ -1,24 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Menu from "../components/Menu.astro";
-
-import Content from "../components/Content.astro";
-import Blocks from "../components/Blocks.astro";
+import { getCollection } from "astro:content";
+import ScreenLayout from "../layouts/ScreenLayout.astro";
+const allScreens = await getCollection("screens");
 ---
 
-<Layout backgroundUrl="/forest-stay.jpg" title="Welcome to Astro.">
-  <Menu />
-  <Content
-    title="Adventure awaits. Let's go!"
-    subtitle="Tree House"
-    paragraphs={[
-      "Integration with social media platforms for sharing.",
-      "Integration with social media platforms for sharing.",
-    ]}
-  />
-  <Blocks />
-</Layout>
-
-<style>
-  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
-</style>
+<>
+  {allScreens.map((screen) => <ScreenLayout {...screen.data} />)}
+</>

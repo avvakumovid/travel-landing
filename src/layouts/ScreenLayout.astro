@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Menu from "../components/Menu.astro";
+
+import Content from "../components/Content.astro";
+import Blocks from "../components/Blocks.astro";
+
+const { backgroundUrl, title, subtitle, paragraphs } = Astro.props;
+---
+
+<Layout backgroundUrl={backgroundUrl} title={title}>
+  <Menu />
+  <Content title={title} subtitle={subtitle} paragraphs={paragraphs} />
+  <Blocks />
+</Layout>
