@@ -1,0 +1,54 @@
+---
+interface Props {
+  paragraphs: string[];
+  title: string;
+  subtitle: string;
+}
+
+const { title, subtitle, paragraphs } = Astro.props;
+const items = ["Item 1", "Item 2", "Item 3"];
+---
+
+<div class="description">
+  <h1 class="heading">{title}</h1>
+  <h2 class="subtitle">{subtitle}</h2>
+  {paragraphs.map((p) => <p class="paragraph">{p}</p>)}
+</div>
+
+<style>
+  .description {
+    display: flex;
+    flex-direction: column;
+    row-gap: calc(2 * var(--unit));
+    padding: calc(1 * var(--unit)) 0 calc(3 * var(--unit)) 0;
+  }
+  .heading {
+    font-size: calc(4 * var(--unit));
+    font-weight: 300;
+    color: hsla(0, 0%, 100%, 0.75);
+    margin: 0;
+    max-width: calc(30 * var(--unit));
+    text-wrap: balance;
+    line-height: calc(4.5 * var(--unit));
+  }
+
+  .subtitle {
+    margin: 0;
+    margin-top: auto;
+    font-size: calc(1.5 * var(--unit));
+    font-weight: 500;
+    line-height: calc(1.5 * var(--unit));
+    text-align: left;
+    color: hsla(0, 0%, 100%, 1);
+    max-width: calc(15 * var(--unit));
+  }
+  .paragraph {
+    margin: 0;
+    font-size: calc(1 * var(--unit));
+    font-weight: 300;
+    line-height: calc(1 * var(--unit));
+    text-align: left;
+    color: hsla(0, 0%, 100%, 1);
+    max-width: calc(15 * var(--unit));
+  }
+</style>

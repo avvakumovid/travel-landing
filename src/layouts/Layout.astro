@@ -1,0 +1,61 @@
+---
+interface Props {
+  title: string;
+  backgroundUrl: string;
+}
+
+const { title, backgroundUrl } = Astro.props;
+
+let backgroundStyle = `url(${backgroundUrl})`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="layout">
+      <slot />
+      <!-- <img src={backgroundUrl} /> -->
+    </div>
+  </body>
+</html>
+<style is:global define:vars={{ backgroundStyle }}>
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+    --unit: calc(1vw + 1vh);
+  }
+  html {
+    font-family: Poppins, sans-serif;
+    background: #13151a;
+    background-size: 224px;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  .layout {
+    height: 100vh;
+    width: 100vw;
+    background: var(--backgroundStyle) no-repeat center;
+    background-size: cover;
+    display: flex;
+    column-gap:  calc(4 * var(--unit));
+  }
+</style>
