@@ -9,7 +9,7 @@ const { title, subtitle, paragraphs } = Astro.props;
 const items = ["Item 1", "Item 2", "Item 3"];
 ---
 
-<div class="description">
+<div id={subtitle} class="description">
   <h1 class="heading">{title}</h1>
   <h2 class="subtitle">{subtitle}</h2>
   {paragraphs.map((p) => <p class="paragraph">{p}</p>)}
@@ -21,6 +21,8 @@ const items = ["Item 1", "Item 2", "Item 3"];
     flex-direction: column;
     row-gap: calc(2 * var(--unit));
     padding: calc(1 * var(--unit)) 0 calc(3 * var(--unit)) 0;
+
+    scroll-snap-align: start;
 
     view-timeline: --subjectReveal block;
     animation-timeline: --subjectReveal;
